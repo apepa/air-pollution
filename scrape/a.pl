@@ -4,12 +4,11 @@ use strict;
 use warnings;
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
-#my $date = join '-', ( ($year + 1900), ($mon + 1), ($mday) );
 
 my $user = getpwuid($<);
 mkdir "/home/$user/data" unless -d "home/$user/data/";
 
-my $date = "2015-12-15";
+my $date = join '-', ( ($year + 1900), ($mon + 1), ($mday) );
 my $LUFTDATEN = "http://archive.luftdaten.info/";
 my $FULL_URL = $LUFTDATEN . $date . "/";
 my $ERR_LOG = "/home/$user/crawl.log";
